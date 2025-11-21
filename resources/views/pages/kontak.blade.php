@@ -3,10 +3,61 @@
 @section('title', 'Kontak Kami')
 
 @section('content')
+    <!-- Success Modal -->
+    @if(session('success'))
+        <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div class="bg-white rounded-lg shadow-xl p-8 max-w-md w-full mx-4 animate-fade-in">
+                <div class="text-center">
+                    <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+                        <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="mt-4 text-lg font-medium text-gray-900">Terima Kasih!</h3>
+                    <p class="mt-2 text-sm text-gray-500">Terima kasih telah mengirim pesan. Permintaan Anda akan segera kami proses. Mohon ditunggu.</p>
+                    <button onclick="document.getElementById('successModal').remove()" 
+                        class="mt-4 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                        Tutup
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: scale(0.95);
+                }
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+            .animate-fade-in {
+                animation: fadeIn 0.3s ease-out;
+            }
+        </style>
+
+        <script>
+            // Auto-close modal after 5 seconds
+            setTimeout(function() {
+                const modal = document.getElementById('successModal');
+                if (modal) {
+                    modal.style.opacity = '0';
+                    modal.style.transition = 'opacity 0.3s ease-out';
+                    setTimeout(function() {
+                        modal.remove();
+                    }, 300);
+                }
+            }, 5000);
+        </script>
+    @endif
+
     <!-- Contact Header -->
-    <header class="bg-linear-to-r from-blue-600 to-blue-800 text-white py-16 px-4">
+    <header class="bg-linear-to-r from-blue-600 to-blue-800 text-white py-16 px-4 text-center">
         <div class="container mx-auto max-w-6xl">
-            <h1 class="text-3xl md:text-4xl font-bold mb-4">Kontak Kami</h1>
+            <h1 class="text-3xl md:text-4xl font-bold mb-4 text-center">Kontak Kami</h1>
             <p class="text-lg md:text-xl opacity-90">Kami siap membantu Anda. Silakan hubungi kami melalui form atau kontak di bawah ini.</p>
         </div>
     </header>
@@ -90,6 +141,12 @@
                                 <input type="email" name="email" id="email" required 
                                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                             </div>
+                        </div>
+
+                        <div>
+                            <label for="no_hp" class="block text-sm font-medium text-gray-700 mb-1">No. HP / WhatsApp</label>
+                            <input type="tel" name="no_hp" id="no_hp" placeholder="Contoh: 08123456789"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                         </div>
 
                         <div>

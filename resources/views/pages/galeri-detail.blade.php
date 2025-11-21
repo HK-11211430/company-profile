@@ -30,13 +30,21 @@
             </div>
         </div>
 
-        <!-- Main Image (simplified wrapper) -->
-        <div class="relative rounded-lg overflow-hidden mb-8">
-            <img
-                src="{{ '/storage/' . $galeri->gambar }}"
-                alt="{{ $galeri->judul }}"
-                class="object-cover w-full max-h-[60vh] h-auto"
-            >
+        <!-- Main Images -->
+        <div class="space-y-4 mb-8">
+            @forelse($galeri->gambar_urls as $url)
+                <div class="relative rounded-lg overflow-hidden">
+                    <img
+                        src="{{ $url }}"
+                        alt="{{ $galeri->judul }}"
+                        class="object-cover w-full max-h-[60vh] h-auto"
+                    >
+                </div>
+            @empty
+                <div class="rounded-lg bg-gray-100 p-10 text-center text-gray-500">
+                    Belum ada foto untuk galeri ini.
+                </div>
+            @endforelse
         </div>
 
         <!-- Content / Description (strip HTML and use fallback) -->
@@ -76,7 +84,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach(\App\Models\Galeri::where('id', '!=', $galeri->id)->inRandomOrder()->take(3)->get() as $related)
                     <a href="{{ route('galeri.detail', $related->id) }}" class="block bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition duration-300">
-                        <img src="{{ '/storage/' . $related->gambar }}" alt="{{ $related->judul }}" class="w-full h-40 object-cover">
+                        @if($related->cover_image_url)
+                            <img src="{{ $related->cover_image_url }}" alt="{{ $related->judul }}" class="w-full h-40 object-cover">
+                        @else
+                            <div class="w-full h-40 bg-gray-100 flex items-center justify-center text-gray-500 text-sm">Tidak ada foto</div>
+                        @endif
                         <div class="p-4">
                             <h3 class="text-lg font-semibold text-gray-900 line-clamp-2">{{ $related->judul }}</h3>
                             <time class="text-sm text-gray-500" datetime="{{ $related->created_at->format('Y-m-d') }}">{{ $related->created_at->format('d M Y') }}</time>

@@ -20,12 +20,18 @@
                 <article class="bg-white rounded-lg shadow-lg overflow-hidden transition duration-300 hover:shadow-xl hover:-translate-y-1">
                     <a href="{{ route('galeri.detail', $item->id) }}" class="block">
                         <!-- Gallery Image (render directly to avoid overlay issues) -->
-                        <div class="relative overflow-hidden">
-                            <img 
-                                src="{{ '/storage/' . $item->gambar }}" 
-                                alt="{{ $item->judul }}"
-                                class="object-cover w-full h-64 transform transition-transform duration-300 hover:scale-105"
-                            >
+                        <div class="aspect-w-16 aspect-h-9 overflow-hidden">
+                            @if($item->cover_image_url)
+                                <img 
+                                    src="{{ $item->cover_image_url }}" 
+                                    alt="{{ $item->judul }}"
+                                    class="object-cover w-full h-48 transform transition-transform duration-300 hover:scale-105"
+                                >
+                            @else
+                                <div class="w-full h-48 bg-gray-100 flex items-center justify-center text-gray-500 text-sm">
+                                    Tidak ada foto
+                                </div>
+                            @endif
                         </div>
 
                         <!-- Content -->
@@ -43,11 +49,18 @@
                             </p>
 
                             <!-- Meta Info -->
-                            <div class="flex items-center text-sm text-gray-500">
+                            <div class="flex items-center justify-between text-sm text-gray-500">
                                 <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
                                 <span>{{ $item->created_at->format('d M Y') }}</span>
+
+                                <span class="inline-flex items-center gap-1 text-xs font-medium text-blue-600">
+                                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                                    </svg>
+                                    {{ $item->gambar_count }} foto
+                                </span>
                             </div>
                         </div>
                     </a>

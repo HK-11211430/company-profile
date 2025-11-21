@@ -34,7 +34,7 @@
 
             <nav class="hidden lg:flex lg:items-center lg:space-x-6" aria-label="Primary">
                 <a href="{{ route('home') }}" class="px-2 py-1 text-sm font-medium {{ request()->routeIs('home') ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600' }}">Beranda</a>
-                <a href="{{ route('produk') }}" class="px-2 py-1 text-sm font-medium {{ request()->routeIs('produk') ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600' }}">Produk</a>
+                <a href="{{ route('jurusan') }}" class="px-2 py-1 text-sm font-medium {{ request()->routeIs('jurusan') ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600' }}">Jurusan</a>
                 <a href="{{ route('artikel') }}" class="px-2 py-1 text-sm font-medium {{ request()->routeIs('artikel') ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600' }}">Artikel</a>
                 <a href="{{ route('galeri') }}" class="px-2 py-1 text-sm font-medium {{ request()->routeIs('galeri') ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600' }}">Galeri</a>
                 <a href="{{ route('kontak') }}" class="px-2 py-1 text-sm font-medium {{ request()->routeIs('kontak') ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600' }}">Kontak</a>
@@ -55,7 +55,7 @@
         <div id="mobile-menu" x-show="open" x-cloak class="lg:hidden bg-white border-t">
             <div class="px-4 pt-4 pb-6 space-y-1">
                 <a href="{{ route('home') }}" class="block px-3 py-2 rounded-md text-base font-medium {{ request()->routeIs('home') ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:bg-gray-50' }}">Beranda</a>
-                <a href="{{ route('produk') }}" class="block px-3 py-2 rounded-md text-base font-medium {{ request()->routeIs('produk') ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:bg-gray-50' }}">Produk</a>
+                <a href="{{ route('jurusan') }}" class="block px-3 py-2 rounded-md text-base font-medium {{ request()->routeIs('jurusan') ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:bg-gray-50' }}">Jurusan</a>
                 <a href="{{ route('artikel') }}" class="block px-3 py-2 rounded-md text-base font-medium {{ request()->routeIs('artikel') ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:bg-gray-50' }}">Artikel</a>
                 <a href="{{ route('galeri') }}" class="block px-3 py-2 rounded-md text-base font-medium {{ request()->routeIs('galeri') ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:bg-gray-50' }}">Galeri</a>
                 <a href="{{ route('kontak') }}" class="block px-3 py-2 rounded-md text-base font-medium {{ request()->routeIs('kontak') ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:bg-gray-50' }}">Kontak</a>
@@ -92,7 +92,7 @@
                     <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Links</h3>
                     <ul class="space-y-2">
                         <li><a href="{{ route('home') }}" class="text-gray-600 hover:text-gray-900">Beranda</a></li>
-                        <li><a href="{{ route('produk') }}" class="text-gray-600 hover:text-gray-900">Produk</a></li>
+                        <li><a href="{{ route('jurusan') }}" class="text-gray-600 hover:text-gray-900">Jurusan</a></li>
                         <li><a href="{{ route('artikel') }}" class="text-gray-600 hover:text-gray-900">Artikel</a></li>
                         <li><a href="{{ route('galeri') }}" class="text-gray-600 hover:text-gray-900">Galeri</a></li>
                         <li><a href="{{ route('kontak') }}" class="text-gray-600 hover:text-gray-900">Kontak</a></li>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Artikel;
 use App\Models\Galeri;
-use App\Models\Produk;
+use App\Models\Jurusan;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -21,11 +21,11 @@ class PageController extends Controller
         return view('pages.home', compact('latestArtikels'));
     }
 
-    public function produk()
+    public function jurusan()
     {
         // Use pagination so the view can call ->links() and ->hasPages()
-        $produks = Produk::latest()->paginate(9);
-        return view('pages.produk', compact('produks'));
+        $jurusans = Jurusan::latest()->paginate(9);
+        return view('pages.jurusan', compact('jurusans'));
     }
 
     public function artikel()
@@ -61,5 +61,11 @@ class PageController extends Controller
     public function kontak()
     {
         return view('pages.kontak');
+    }
+
+    public function jurusanDetail($slug)
+    {
+        $jurusan = Jurusan::where('slug', $slug)->firstOrFail();
+        return view('pages.jurusan-detail', compact('jurusan'));
     }
 }

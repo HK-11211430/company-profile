@@ -14,5 +14,8 @@ if ($count === 0) {
 }
 
 foreach ($items as $row) {
-    echo $row->id . '|' . $row->gambar . PHP_EOL;
+    $images = is_array($row->gambar) ? $row->gambar : [$row->gambar];
+    $images = array_filter($images);
+
+    echo $row->id . '|' . implode(',', $images) . PHP_EOL;
 }

@@ -2,18 +2,7 @@
 
 namespace App\Filament\Resources\ProdukResource\Pages;
 
-use App\Filament\Resources\ProdukResource;
-use Filament\Actions;
-use Filament\Resources\Pages\ListRecords;
-
-class ListProduks extends ListRecords
+class ListProduks extends \App\Filament\Resources\JurusanResource\Pages\ListJurusans
 {
-    protected static string $resource = ProdukResource::class;
-
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
+    // Compatibility stub — delegates to JurusanResource list page.
 }

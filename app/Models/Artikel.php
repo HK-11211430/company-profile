@@ -2,12 +2,17 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\CleansUpUploadedFiles;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Artikel extends Model
 {
     use HasFactory;
+    use CleansUpUploadedFiles;
+
+    protected array $fileCleanupAttributes = ['thumbnail'];
+    protected string $fileCleanupDisk = 'public';
 
     /**
      * The attributes that are mass assignable.

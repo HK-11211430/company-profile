@@ -2,18 +2,7 @@
 
 namespace App\Filament\Resources\ProdukResource\Pages;
 
-use App\Filament\Resources\ProdukResource;
-use Filament\Actions;
-use Filament\Resources\Pages\EditRecord;
-
-class EditProduk extends EditRecord
+class EditProduk extends \App\Filament\Resources\JurusanResource\Pages\EditJurusan
 {
-    protected static string $resource = ProdukResource::class;
-
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\DeleteAction::make(),
-        ];
-    }
+    // Compatibility stub — delegates to JurusanResource edit page.
 }

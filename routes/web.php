@@ -6,7 +6,8 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\ContactController;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
-Route::get('/produk', [PageController::class, 'produk'])->name('produk');
+Route::get('/jurusan', [PageController::class, 'jurusan'])->name('jurusan');
+Route::get('/jurusan/{slug}', [PageController::class, 'jurusanDetail'])->name('jurusan.detail');
 Route::get('/artikel', [PageController::class, 'artikel'])->name('artikel');
 Route::get('/artikel/{slug}', [PageController::class, 'artikelDetail'])->name('artikel.detail');
 Route::get('/galeri', [PageController::class, 'galeri'])->name('galeri');

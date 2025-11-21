@@ -59,7 +59,7 @@ class ArtikelResource extends Resource
                         ->required(),
 
                     Forms\Components\Select::make('user_id')
-                        ->relationship('user', 'name')
+                        ->options(\App\Models\User::query()->orderBy('name')->pluck('name', 'id')->toArray())
                         ->required(),
                 ])->columnSpan(1),
             ])->columns(3);
@@ -101,7 +101,7 @@ class ArtikelResource extends Resource
                         'published' => 'Published',
                     ]),
                 Tables\Filters\SelectFilter::make('user_id')
-                    ->relationship('user', 'name')
+                    ->options(\App\Models\User::query()->orderBy('name')->pluck('name', 'id')->toArray())
                     ->label('Penulis'),
             ])
             ->actions([
